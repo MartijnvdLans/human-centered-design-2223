@@ -57,32 +57,45 @@ video.addEventListener('play', () => {
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
         let lastLi = document.querySelector(".main-ul li:last-of-type")
         if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.happy > 0.9) {
+            let color = 'happy'
             moodBox.classList = ""
-            moodBox.classList.add('happy')
-            lastLi.classList = ""
-            lastLi.classList.add('happy')
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+            // lastLi.classList = ""
+            // lastLi.classList.add('happy')
         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.sad > 0.9) {
+            let color = 'sad'
             moodBox.classList = ""
             moodBox.classList.add('sad')
-            lastLi.classList = ""
-            lastLi.classList.add('sad')
+            socket.emit('changeColor', color)
+            // lastLi.classList = ""
+            // lastLi.classList.add('sad')
         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.surprised > 0.9) {
+            let color = 'surprised'
             moodBox.classList = ""
             moodBox.classList.add('surprised')
-            lastLi.classList = ""
-            lastLi.classList.add('surprised')
+            socket.emit('changeColor', color)
+            // lastLi.classList = ""
+            // lastLi.classList.add('surprised')
         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.disgusted > 0.9) {
+            let color = 'disgust'
             moodBox.classList = ""
             moodBox.classList.add('disgust')
-            lastLi.classList = ""
-            lastLi.classList.add('disgust')
+            socket.emit('changeColor', color)
+            // lastLi.classList = ""
+            // lastLi.classList.add('disgust')
         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.angry > 0.9) {
+            let color = 'angry'
             moodBox.classList = ""
              moodBox.classList.add('angry')
-             lastLi.classList = ""
-             lastLi.classList.add('angry')      
+             socket.emit('changeColor', color)
+            //  lastLi.classList = ""
+            //  lastLi.classList.add('angry')      
         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.neutral > 0.9) {
             moodBox.classList = ""
+            let color = 'neutral'
+            moodBox.classList.add('neutral')
+            socket.emit('changeColor', color)
             if (lastLi) {
                 // lastLi.classList = ""
             }
@@ -90,15 +103,23 @@ video.addEventListener('play', () => {
     }, 100)
 })
 
+document.querySelector('#chatroom').addEventListener('submit', event => {
+    event.preventDefault()
+    if (input.value) {        
+        let mainColor = document.querySelector(".box section")
+        socket.emit('message', {text:input.value, color:mainColor.classList.value})
+        input.value = ''
+    }
+  });
 
+function checkColor() {
+}
 
-    document.querySelector('#chatroom').addEventListener('submit', event => {
-        event.preventDefault()
-        if (input.value) {
-          socket.emit('message', 'Erik: ' + input.value)
-          input.value = ''
-        }
-      });
+var currentcolor = checkColor()
+console.log(currentcolor)
+
+// let colorVal = color
+// console.log(color)
 
       document.querySelector('#chatroom').addEventListener('keypress', e => {
         if(e.which!=13) {
@@ -113,7 +134,8 @@ video.addEventListener('play', () => {
 
     socket.on('message', message => {
         let messageLine = document.createElement('li')
-        messageLine.textContent = message
+        messageLine.textContent = message.text
+        messageLine.classList.add(message.color)
         messages.appendChild(messageLine)
         messages.scrollTop = messages.scrollHeight
       });
@@ -145,7 +167,7 @@ document.querySelector('#name-form').addEventListener('submit', event => {
 }
 
 function typingTimeout() {
-    console.log('notyping')
+    // console.log('notyping')
     typing = false
     socket.emit('typing', {typing: false})
 }

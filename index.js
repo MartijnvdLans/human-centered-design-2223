@@ -52,10 +52,13 @@ io.on("connection", (socket) => {
        io.emit('display', data)
   })
 
+  socket.on('changeColor', color => {
+    console.log(color)
+    io.emit('textColor', color)
+  })
+
   socket.on("message", (message) => {
-    socket.on('changeColor', color => {
-      io.emit('textColor', color)
-    })
+
     io.emit("message", message);
   });
 
