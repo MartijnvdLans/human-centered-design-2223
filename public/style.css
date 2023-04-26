@@ -5,6 +5,7 @@
     --sad: #04b0b3;
     --disgust: #157d44;
     --angry: #9c1a00;
+    --surprised: #f58ce9;
 }
 
 *, html {
@@ -54,7 +55,6 @@ section.box {
 section section {
     /* border: 1px solid #000; */
     padding: .5em;
-    background-color: #fff;
 }
 
 section section:first-child {
@@ -72,13 +72,21 @@ section section:nth-child(1) {
     height: calc(100vh -  var(--header-height)x);
     width: 70vw;
     padding: 1em;
-    background: var(--happy);
+    background: var(--neutral);
+}
+
+#video-grid {
+    position: relative;
 }
 
 video {
-    width: 100%;
-    min-height: 400px;
-    transform: scaleX(-1);
+    min-width: 400px;
+    min-height: 300px;
+}
+
+canvas {
+    position: absolute;
+    margin-left: -520px;
 }
 
 section section:nth-child(2), section section:nth-child(3) {
@@ -176,10 +184,10 @@ ul.main-ul {
     margin-top: 1em;
 }
 
-.main-ul li:nth-of-type(2n) {
+/* .main-ul li:nth-of-type(2n) {
     background-color: greenyellow;
     border-radius: 1em 1em 1em 0;
-}
+} */
 
 li {
     margin-top: 5px;
@@ -231,7 +239,7 @@ p {
     padding: 1em 0;
 }
 
-#video {
+#videoBtn {
     position: absolute;
     bottom: 2em;
     left: 50%;
@@ -242,7 +250,7 @@ p {
     cursor: pointer;
 }
 
-#video img {
+#videoBtn img {
     width: 50px;
     margin-top: -3px;
     margin-left: -2px;
@@ -253,18 +261,24 @@ section section:nth-child(2) li {
 }
 
 .happy {
-    background-color: var(--happy);
+    background-color: var(--happy)!important;
     color: #000;
 }
 
 .sad {
-    background-color: var(--sad);
+    background-color: var(--sad)!important;
 }
 
 .disgust {
-    background-color: var(--disgust);
+    background-color: var(--disgust)!important;
+    color: #fff!important;
 }
 
 .angry {
-    background-color: var(--angry);
+    background-color: var(--angry)!important;
+    color: #fff!important;
+}
+
+.surprised {
+    background-color: var(--surprised)!important;
 }

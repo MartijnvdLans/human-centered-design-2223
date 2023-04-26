@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script defer src="/face-api.js"></script>
-    <script defer src="/face-api.min.js"></script>
+    <script defer src="/face-api-min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
@@ -19,8 +18,9 @@
         <section class="box">
             <section>
                 <div id="video-grid">
+                    <video id="video" width="520" height="360" autoplay muted></video>
                 </div>
-                <button id="video"><img src="/images/video.svg" alt="Toggle camera"></button>
+                <button id="videoBtn"><img src="/images/video.svg" alt="Toggle camera"></button>
             </section>
             <section>
                 <span class="online"></span><p>${users.count} online</p>
@@ -29,11 +29,12 @@
                     <li class="angry">Angry</li>
                     <li class="disgust">Disgusted</li>
                     <li class="sad">Sad</li>
+                    <li class="surprised">Surprised</li>
                 </ul>
             </section>
             <section>
                 <ul class="main-ul">
-                    <li class="ano"><%= username %> has joined the chat</li>
+                    <div class="ano">Erik has joined the chat!</div>
                 </ul>
                 <p class="typing"></p>
                 <form id="chatroom">
@@ -44,7 +45,7 @@
         </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
     <!-- <script src="whiteboard.js"></script> -->
 </body>
 </html>
