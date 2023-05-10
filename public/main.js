@@ -63,67 +63,67 @@ if (chatMain) {
         }
     })
 
-video.addEventListener('play', () => {
-    const canvas = faceapi.createCanvasFromMedia(video)
-    document.querySelector('#video-grid').append(canvas)
-    const displaySize = {width: video.width, height: video.height}
-    console.log('FSGDFWSDZ')
-    faceapi.matchDimensions(canvas, displaySize)
-    setInterval(async () => {
-        const detection = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
-        // console.log(detection)
-        const resizedDetections = faceapi.resizeResults(detection, displaySize)
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-        faceapi.draw.drawDetections(canvas, resizedDetections)
-        // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-        faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-        let lastLi = document.querySelector(".main-ul li:last-of-type")
-        if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.happy > 0.9) {
-            let color = 'happy'
-            moodBox.classList = ""
-            moodBox.classList.add(color)
-            socket.emit('changeColor', color)
-            // lastLi.classList = ""
-            // lastLi.classList.add('happy')
-        } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.sad > 0.9) {
-            let color = 'sad'
-            moodBox.classList = ""
-            moodBox.classList.add('sad')
-            socket.emit('changeColor', color)
-            // lastLi.classList = ""
-            // lastLi.classList.add('sad')
-        } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.surprised > 0.9) {
-            let color = 'surprised'
-            moodBox.classList = ""
-            moodBox.classList.add('surprised')
-            socket.emit('changeColor', color)
-            // lastLi.classList = ""
-            // lastLi.classList.add('surprised')
-        } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.disgusted > 0.9) {
-            let color = 'disgust'
-            moodBox.classList = ""
-            moodBox.classList.add('disgust')
-            socket.emit('changeColor', color)
-            // lastLi.classList = ""
-            // lastLi.classList.add('disgust')
-        } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.angry > 0.9) {
-            let color = 'angry'
-            moodBox.classList = ""
-             moodBox.classList.add('angry')
-             socket.emit('changeColor', color)
-            //  lastLi.classList = ""
-            //  lastLi.classList.add('angry')      
-        } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.neutral > 0.9) {
-            moodBox.classList = ""
-            let color = 'neutral'
-            moodBox.classList.add('neutral')
-            socket.emit('changeColor', color)
-            if (lastLi) {
-                // lastLi.classList = ""
-            }
-        }
-    }, 100)
-})
+// video.addEventListener('play', () => {
+//     const canvas = faceapi.createCanvasFromMedia(video)
+//     document.querySelector('#video-grid').append(canvas)
+//     const displaySize = {width: video.width, height: video.height}
+//     console.log('FSGDFWSDZ')
+//     faceapi.matchDimensions(canvas, displaySize)
+//     setInterval(async () => {
+//         const detection = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+//         // console.log(detection)
+//         const resizedDetections = faceapi.resizeResults(detection, displaySize)
+//         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+//         faceapi.draw.drawDetections(canvas, resizedDetections)
+//         // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+//         faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+//         let lastLi = document.querySelector(".main-ul li:last-of-type")
+//         if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.happy > 0.9) {
+//             let color = 'happy'
+//             moodBox.classList = ""
+//             moodBox.classList.add(color)
+//             socket.emit('changeColor', color)
+//             // lastLi.classList = ""
+//             // lastLi.classList.add('happy')
+//         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.sad > 0.9) {
+//             let color = 'sad'
+//             moodBox.classList = ""
+//             moodBox.classList.add('sad')
+//             socket.emit('changeColor', color)
+//             // lastLi.classList = ""
+//             // lastLi.classList.add('sad')
+//         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.surprised > 0.9) {
+//             let color = 'surprised'
+//             moodBox.classList = ""
+//             moodBox.classList.add('surprised')
+//             socket.emit('changeColor', color)
+//             // lastLi.classList = ""
+//             // lastLi.classList.add('surprised')
+//         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.disgusted > 0.9) {
+//             let color = 'disgust'
+//             moodBox.classList = ""
+//             moodBox.classList.add('disgust')
+//             socket.emit('changeColor', color)
+//             // lastLi.classList = ""
+//             // lastLi.classList.add('disgust')
+//         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.angry > 0.9) {
+//             let color = 'angry'
+//             moodBox.classList = ""
+//              moodBox.classList.add('angry')
+//              socket.emit('changeColor', color)
+//             //  lastLi.classList = ""
+//             //  lastLi.classList.add('angry')      
+//         } else if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.7 && resizedDetections[0].expressions.neutral > 0.9) {
+//             moodBox.classList = ""
+//             let color = 'neutral'
+//             moodBox.classList.add('neutral')
+//             socket.emit('changeColor', color)
+//             if (lastLi) {
+//                 // lastLi.classList = ""
+//             }
+//         }
+//     }, 100)
+// })
 
 document.querySelector('#chatroom').addEventListener('submit', event => {
     event.preventDefault()
@@ -165,7 +165,7 @@ console.log(currentcolor)
             nameSpan.textContent = `Eric · neutral`
         }
         messages.appendChild(messageLine)
-        messageLine.appendChild(nameSpan)
+        // messageLine.appendChild(nameSpan)
         messages.scrollTop = messages.scrollHeight
       });
       
