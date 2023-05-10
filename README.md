@@ -39,12 +39,19 @@ Hobbies:
 
 ### Wat wil ik weten?
 
-* Is de kleur fijn of heb je liever een live emoji die je emotie aangeeft?
 * Is het fijn dat je emotie feedback krijgt voordat je een bericht stuurt?
 * Heb je liever andere kleuren voor bepaalde emoties?
 * Is het makkelijk om te scrollen om de emoties te zien of wil je dat de section net zo hoog is als het aantal mogelijk emoties zodat je niet hoeft te scrollen?
-* Is het makkelijk om op de videocall button te klikken? (Doet op het moment nog niks)
 * Vind je het fijn dat de camera uit zichzelf aangaat of wil je deze zelf aan kunnen zetten?
+
+## Insights
+
+* Gebruikt liever pijltoetsen dan tabjes
+* Kleuren niet te veel aan sleutelen (blauw iets blauwer)
+* Camera meteen aan is fijn, maar een snelle handeling om hem uit te zetten is fijn als je in een drukke omgeving zit.
+* Fallback zou fijn zijn. Door het licht werktte de API niet op Eric zijn gezicht dus een fallback om de knoppen te gebruiken zou fijn zijn.
+* Text bij de textwolk - "Eric · *happy*"
+
 
 ## Lisence
 
