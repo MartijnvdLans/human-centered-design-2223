@@ -47,10 +47,11 @@ Hobbies:
 ## Insights
 
 * Gebruikt liever pijltoetsen dan tabjes
-* Kleuren niet te veel aan sleutelen (blauw iets blauwer)
-* Camera meteen aan is fijn, maar een snelle handeling om hem uit te zetten is fijn als je in een drukke omgeving zit.
+
+v * Kleuren niet te veel aan sleutelen (blauw iets blauwer)
+v * Camera meteen aan is fijn, maar een snelle handeling om hem uit te zetten is fijn als je in een drukke omgeving zit.
 * Fallback zou fijn zijn. Door het licht werktte de API niet op Eric zijn gezicht dus een fallback om de knoppen te gebruiken zou fijn zijn.
-* Text bij de textwolk - "Eric · *happy*"
+v * Text bij de textwolk - "Eric · *happy*"
 
 
 ## Lisence

@@ -3,8 +3,11 @@ let socket = io();
 const chatMain = document.querySelector('#chatbox')
 const loginMain = document.querySelector('#loginRoom')
 const video = document.getElementById('video')
+const videoBtn = document.querySelector('#videoBtn')
+const videoImg = document.querySelector("#videoBtn img")
 const urlParams = new URLSearchParams(window.location.search) // create a URLSearchParams that searches for parameters in the searchbar
 const username = urlParams.get('username') // get the username parameter
+let cameraStatus = true
 
 socket.emit('user connected', username) // send the server socket the username of the client that has joined
 
@@ -20,14 +23,14 @@ if (chatMain) {
         faceapi.nets.faceExpressionNet.loadFromUri('./models')
     ]).then(startVideo())
 
-    function startVideo() {
-        if (navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true })
-              .then(function (stream) {
-                video.srcObject = stream;
-              })
-          }
-    }
+    // function startVideo() {
+    //     if (navigator.mediaDevices.getUserMedia) {
+    //         navigator.mediaDevices.getUserMedia({ video: true })
+    //           .then(function (stream) {
+    //             video.srcObject = stream;
+    //           })
+    //       }
+    // }
 
     function startVideo() {
         if (navigator.mediaDevices.getUserMedia) {
@@ -40,6 +43,25 @@ if (chatMain) {
               });
           }
     }
+
+    videoBtn.addEventListener('click', () => {
+        if (cameraStatus === true) {
+            videoImg.src = "/images/videoOff.svg"
+            cameraStatus = false
+            const stream = video.srcObject
+            stream.getTracks().forEach(function(track) {
+                track.stop();
+            });
+            video.style.display = "none"
+            const removeCanvas = document.querySelector("#video-grid canvas")  
+            removeCanvas.remove()          
+        } else {
+            video.style.display = ""
+            videoImg.src = "/images/video.svg"
+            cameraStatus = true
+            startVideo()
+        }
+    })
 
 video.addEventListener('play', () => {
     const canvas = faceapi.createCanvasFromMedia(video)
@@ -134,15 +156,22 @@ console.log(currentcolor)
 
     socket.on('message', message => {
         let messageLine = document.createElement('li')
+        let nameSpan = document.createElement('span')
         messageLine.textContent = message.text
-        messageLine.classList.add(message.color)
+        if (message.color) {
+            messageLine.classList.add(message.color)
+            nameSpan.textContent = `Eric · ${message.color}`
+        } else {
+            nameSpan.textContent = `Eric · neutral`
+        }
         messages.appendChild(messageLine)
+        messageLine.appendChild(nameSpan)
         messages.scrollTop = messages.scrollHeight
       });
       
       socket.on('display', (data)=>{
           if(data.typing==true)
-          document.querySelector('.typing').innerHTML = " ${naam} is aan het typen ..."
+          document.querySelector('.typing').innerHTML = "Eric is aan het typen ..."
           else
           document.querySelector('.typing').innerHTML = ""
         })
