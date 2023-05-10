@@ -16,7 +16,7 @@ Voor Eric zijn emoji’s niet goed genoeg. Wij wil betere en krachtigere tools o
 
 ## Testerverslag week 1
 
-Testpersoon: Erik
+Testpersoon: Eric
 
 * Pen werkt goed op de samsung, maar slecht op de iphone.
 * Geen gifjes en stickers
