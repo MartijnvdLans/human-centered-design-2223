@@ -31,6 +31,12 @@ Hobbies:
 
 ## Testverslag week 2
 
+### Testen
+
+* Wacht tot de camera het doet en kijk of het makkelijk is om de achtergrond kleur te veranderen doormiddel van gezichtsuitdrukkingen. Probeer: Blij, Verdrietig, Verbaasd, Walgen
+
+* Probeer een emotie mee te geven aan de chat door blij of verbaasd te kijken terwijl je een chatbericht stuurt
+
 ### Wat wil ik weten?
 
 * Is de kleur fijn of heb je liever een live emoji die je emotie aangeeft?
