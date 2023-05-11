@@ -1,6 +1,6 @@
 # Emotion Detection Chat
 
-[https://github.com/MartijnvdLans/human-centered-design-2223/raw/main/docs/Demo-2-blij.png?raw=true](https://github.com/MartijnvdLans/human-centered-design-2223/raw/main/docs/Demo-2-blij.png?raw=true)
+<img src="https://github.com/MartijnvdLans/human-centered-design-2223/raw/main/docs/Demo-2-blij.png?raw=true" alt="Chat preview" width="100%">
 
 ## Onderzoeksvraag
 
