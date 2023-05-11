@@ -4,6 +4,7 @@ const chatMain = document.querySelector('#chatbox')
 const loginMain = document.querySelector('#loginRoom')
 const video = document.getElementById('video')
 const videoBtn = document.querySelector('#videoBtn')
+const fightBtn = document.querySelector('#fightBtn')
 const videoImg = document.querySelector("#videoBtn img")
 const urlParams = new URLSearchParams(window.location.search) // create a URLSearchParams that searches for parameters in the searchbar
 const username = urlParams.get('username') // get the username parameter
@@ -15,6 +16,11 @@ const sadBtn = document.getElementById('sad')
 const disgustedBtn = document.getElementById('disgusted')
 const surprisedBtn = document.getElementById('surprised')
 const neutralBtn = document.getElementById('neutral')
+
+const wizard = document.getElementById("wizard")
+const fireball = document.getElementById("fireball")
+const knight = document.getElementById("knight")
+const deadKnight = document.getElementById("dead-knight")
 
 socket.emit('user connected', username) // send the server socket the username of the client that has joined
 
@@ -224,6 +230,21 @@ var currentcolor = checkColor()
           else
           document.querySelector('.typing').innerHTML = ""
         })
+
+        fightBtn.addEventListener('click', () => {
+            knight.classList.add("knight")
+            deadKnight.classList.add("dead-knight")
+            fireball.classList.add("fireball")
+            wizard.classList.add("wizard")
+            setTimeout(resetClass, 9000)
+        })
+
+        function resetClass() {
+            knight.classList.remove("knight")
+            deadKnight.classList.remove("dead-knight")
+            fireball.classList.remove("fireball")
+            wizard.classList.remove("wizard")
+        }
 }
 
 if (loginMain) {
