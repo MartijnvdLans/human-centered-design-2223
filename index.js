@@ -53,7 +53,7 @@ io.on("connection", (socket) => {
   })
 
   socket.on('changeColor', color => {
-    console.log(color)
+    // console.log(color)
     io.emit('textColor', color)
   })
 

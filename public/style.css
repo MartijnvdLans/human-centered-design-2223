@@ -109,7 +109,7 @@ section section:nth-child(2) {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    background-color: #440669;
+    background-color: #31084a;
 }
 
 section section:nth-child(2) span {
@@ -197,6 +197,7 @@ ul.main-ul {
 section section:nth-child(2) ul {
     display: flex;
     flex-wrap: wrap;
+    height: 90%;
 }
 
 section section:nth-child(2) ul input{
@@ -207,6 +208,7 @@ section section:nth-child(2) ul label{
     padding: .5em;
     width: 100%;
     margin: .2em;
+    cursor: pointer;
 }
 
 /* .main-ul li:nth-of-type(2n) {
@@ -306,4 +308,8 @@ section section:nth-child(2) li {
 
 .surprised {
     background-color: var(--surprised)!important;
+}
+
+.neutral {
+    background-color: var(--neutral)!important;
 }

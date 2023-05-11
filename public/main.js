@@ -9,12 +9,62 @@ const urlParams = new URLSearchParams(window.location.search) // create a URLSea
 const username = urlParams.get('username') // get the username parameter
 let cameraStatus = true
 
+const happyBtn = document.getElementById('happy')
+const angryBtn = document.getElementById('angry')
+const sadBtn = document.getElementById('sad')
+const disgustedBtn = document.getElementById('disgusted')
+const surprisedBtn = document.getElementById('surprised')
+const neutralBtn = document.getElementById('neutral')
+
 socket.emit('user connected', username) // send the server socket the username of the client that has joined
 
 if (chatMain) {
     let messages = document.querySelector('section section:nth-of-type(3) ul')
     let input = document.querySelector('#message-input')
     const moodBox = document.querySelector(".box section:nth-of-type(1)")
+
+    happyBtn.addEventListener('click', () => {
+        let color = 'happy'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
+    angryBtn.addEventListener('click', () => {
+        let color = 'angry'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
+    sadBtn.addEventListener('click', () => {
+        let color = 'sad'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
+    disgustedBtn.addEventListener('click', () => {
+        let color = 'disgust'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
+    surprisedBtn.addEventListener('click', () => {
+        let color = 'surprised'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
+    neutralBtn.addEventListener('click', () => {
+        let color = 'neutral'
+            moodBox.classList = ""
+            moodBox.classList.add(color)
+            socket.emit('changeColor', color)
+    })
+
 
     Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri('./models'),
@@ -67,7 +117,6 @@ video.addEventListener('play', () => {
     const canvas = faceapi.createCanvasFromMedia(video)
     document.querySelector('#video-grid').append(canvas)
     const displaySize = {width: video.width, height: video.height}
-    console.log('FSGDFWSDZ')
     faceapi.matchDimensions(canvas, displaySize)
     setInterval(async () => {
         const detection = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
@@ -138,7 +187,7 @@ function checkColor() {
 }
 
 var currentcolor = checkColor()
-console.log(currentcolor)
+// console.log(currentcolor)
 
 // let colorVal = color
 // console.log(color)
@@ -196,7 +245,6 @@ document.querySelector('#name-form').addEventListener('submit', event => {
 }
 
 function typingTimeout() {
-    // console.log('notyping')
     typing = false
     socket.emit('typing', {typing: false})
 }
