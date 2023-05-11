@@ -1,22 +1,28 @@
-# HCD
+# Emotion Detection Chat
 
-## Uitleg
+[https://github.com/MartijnvdLans/human-centered-design-2223/raw/main/docs/Demo-2-blij.png?raw=true](https://github.com/MartijnvdLans/human-centered-design-2223/raw/main/docs/Demo-2-blij.png?raw=true)
 
-Voor het vak HCD heb ik de opdracht gekregen om voor 1 specifiek persoon een oplossing te bedenken. We hebben 2 testmomenten en tijdens deze testmomenten hoop ik op nieuwe inzichten te komen en de app zo fijn mogelijk te maken voor mijn testpersoon.
+## Onderzoeksvraag
+
+Voor Eric zijn emoji’s niet goed genoeg. Wij wil betere en krachtigere tools om emotie en *body language* te gebruiken in chat apps zoals Signal.
 
 ## Het probleem
 
-Eric is een ontwerper. Hij organiseert regelmatig design-avonden waar hij probeert om mensen met beperkingen samen te brengen met ontwerpers en makers. Eric zelf zit in een electrische rolstoel. Hij heeft niet de beschikking over de fijne motoriek. 
+Eric heeft veel moeite met het bepalen van welke emoji's hij moet gebruiken om zijn emotie uit te drukken omdat dit er zo veel zijn. Zelf snapt hij de betekenis van de meeste emoji's ook niet helemaal en is het af en toe gokken.
 
-Voor Eric zijn emoji’s niet goed genoeg. Wij wil betere en krachtigere tools om emotie en *body language* te gebruiken in chat apps zoals Signal.
+## Oplossing
+
+Om het voor Eric makkelijker te maken heb ik besloten in mijn chat app emoji's helemaal te schrappen. Waarom iets gebruiken waar je niet de betekenis van snapt.
+
+Daarom heb ik een chat gemaakt waar Eric kan chatten en emoties mee kan geven op basis van zijn huidige emotie. De camera detecteert live zijn emotie en op basis van zijn emotie krijgen zijn berichten een kleur mee.
 
 ## Live Demo
 
 [https://emotion-detection-chat.adaptable.app/](https://emotion-detection-chat.adaptable.app/)
 
-## Conclusie
+## Onderzoek en Documentatie
 
-tba
+Om mijn readme een beetje netjes te houden heb ik mijn onderzoek in een wiki gezet. Ik verwijs je dan ook [hier](https://github.com/MartijnvdLans/human-centered-design-2223/wiki) door naar mijn wiki
 
 
 ## Lisence
