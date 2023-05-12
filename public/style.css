@@ -386,26 +386,27 @@ section section:nth-child(2) li {
 
 @keyframes wizardAnim {
     0% {left: -10em}
-    10% {left: 2em;}
+    10% {left: calc(17% - 100px);}
     80% {transform: rotateY(-180deg);}
-    90% {left: 2em;transform: rotateY(0deg);}
+    90% {left: calc(17% - 100px);transform: rotateY(0deg);}
     100% {left: -10em}
 }
 
 @keyframes knightAnim {
     0% {right: -10em}
-    10% {right: 2em;}
+    10% {right: calc(17% - 100px);}
     70% {opacity: 1;}
     80% {opacity: 0;}
-    100% {right: 2em;opacity: 0;}
+    100% {right: calc(17% - 100px);opacity: 0;}
 }
 
 @keyframes deadknightAnim {
     0% {right: -10em;opacity: 0;}
-    10% {right: 2em;}
+    10% {right: calc(17% - 100px);}
     70% {opacity: 0;}
     80% {opacity: 1;}
-    100% {right: 2em;display: none;opacity: 1;}
+    95% {opacity: 1;}
+    100% {right: calc(17% - 100px);display: none;opacity: 0;}
 }
 
 @keyframes fireballAnim {
