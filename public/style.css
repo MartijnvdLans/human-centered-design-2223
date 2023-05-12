@@ -389,7 +389,7 @@ section section:nth-child(2) li {
     10% {left: calc(17% - 100px);}
     80% {transform: rotateY(-180deg);}
     90% {left: calc(17% - 100px);transform: rotateY(0deg);}
-    100% {left: -10em}
+    100% {left: -10em;transform: rotateY(0deg);}
 }
 
 @keyframes knightAnim {
